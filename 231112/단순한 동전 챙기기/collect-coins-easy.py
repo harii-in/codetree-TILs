@@ -45,4 +45,4 @@ else:
 
                 ans = min(ans, distance(first, second, third))
 
-print(ans)
+    print(ans)
