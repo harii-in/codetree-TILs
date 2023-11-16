@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(2500)
+sys.setrecursionlimit(50*50)
 
 # 상, 하, 좌, 우
 dx = [-1, 1, 0, 0]
@@ -16,10 +16,9 @@ def in_range(x, y):
 def possible(x, y, k):
     return in_range(x, y) and not visited[x][y] and rain[x][y] > k
 
-max_k = 0       # 최대가 되는 K
+max_k = 1       # 최대가 되는 K(K≥1)
 max_safe = 0    # 최대 안전 영역 수
 def DFS(x, y, k):
-    global tmp
 
     for d in range(4):
         nx = x + dx[d]
