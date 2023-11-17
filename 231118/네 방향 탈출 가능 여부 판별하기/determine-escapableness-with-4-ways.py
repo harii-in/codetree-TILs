@@ -17,11 +17,12 @@ def possible(x, y):
 def BFS():
     queue = deque()
     queue.append((0, 0))
+    visited[0][0] = True
 
     while queue:
         x, y = queue.popleft()
 
-        if x == n-1 and y == m-1 and not visited[x][y]:
+        if x == n-1 and y == m-1:
             return 1
 
         for d in range(4):
@@ -30,6 +31,7 @@ def BFS():
 
             if possible(nx, ny):
                 queue.append((nx, ny))
+                visited[nx][ny] = True
     
     return 0
 
