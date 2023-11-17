@@ -9,7 +9,6 @@ visited = [[False]*n for _ in range(n)]
 def in_range(x, y):
     return 0 <= x < n and 0 <= y < n
 
-
 def possible(x, y, k):
     return in_range(x, y) and not visited[x][y] and grid[x][y] == k
 
