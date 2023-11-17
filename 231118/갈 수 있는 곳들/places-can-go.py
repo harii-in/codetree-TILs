@@ -39,8 +39,8 @@ def BFS(i, j):
 
 for _ in range(k):
     i, j = map(int, input().split())
-    if possible(i, j):
+    if possible(i-1, j-1):
         total += 1
-        BFS(i, j)
+        BFS(i-1, j-1)
 
 print(total)
