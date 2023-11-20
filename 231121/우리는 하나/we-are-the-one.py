@@ -21,6 +21,7 @@ def BFS(starts):
         queue = deque()
         queue.append((x, y))
         visited[x][y] = True
+        # 시작 도시를 포함하여 세기
         cnt += 1
 
         while queue:
