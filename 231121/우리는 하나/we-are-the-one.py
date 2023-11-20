@@ -15,10 +15,10 @@ def possible(x, y, visited):
     return in_range(x, y) and not visited[x][y]
 
 def BFS(starts):
-    visited = [[False]*n for _ in range(n)]
-
     cnt = 1
     for x, y in starts:
+        visited = [[False]*n for _ in range(n)]
+        
         queue = deque()
         queue.append((x, y))
         visited[x][y] = True
