@@ -17,7 +17,7 @@ def possible(x, y, visited):
 def BFS(starts):
     visited = [[False]*n for _ in range(n)]
 
-    cnt = 0
+    cnt = 1
     for x, y in starts:
         queue = deque()
         queue.append((x, y))
@@ -42,4 +42,4 @@ max_cnt = 0
 for starts in combinations(cities, k):
     max_cnt = max(max_cnt, BFS(starts))
 
-print(max_cnt+1)
+print(max_cnt)
