@@ -9,6 +9,9 @@ def BFS():
     
     while queue:
         tmp = queue.popleft()
+        if tmp == 1:
+            return 
+            
         if visited[tmp-1] == 0:
             visited[tmp-1] = visited[tmp] + 1
             queue.append(tmp-1)
