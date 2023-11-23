@@ -1,15 +1,29 @@
+from collections import deque
+
 N = int(input())
+visited = [0 for _ in range(1000001)]
 
-dp = [1e9 for _ in range(N+1)]
-dp[1] = 0
-
-for i in range(2, N+1):
-    dp[i] = dp[i-1] + 1
-
-    if i % 2 == 0:
-        dp[i] = min(dp[i], dp[i//2] + 1)
+def BFS():
+    queue = deque()
+    queue.append(N)
     
-    if i % 3 == 0:
-        dp[i] = min(dp[i], dp[i//3] + 1)
+    while queue:
+        tmp = queue.popleft()
+        if visited[tmp-1] == 0:
+            visited[tmp-1] = visited[tmp] + 1
+            queue.append(tmp-1)
+        
+        if visited[tmp+1] == 0 and tmp+1<=1000001:
+            visited[tmp+1] = visited[tmp] + 1
+            queue.append(tmp+1)
 
-print(dp[N] if dp[N] != 1e9 else 0)
+        if tmp % 2 == 0 and visited[tmp//2] == 0:
+            visited[tmp//2] = visited[tmp] + 1
+            queue.append(tmp//2)
+        
+        if tmp % 3 == 0 and visited[tmp//3] == 0:
+            visited[tmp//3] = visited[tmp] + 1
+            queue.append(tmp//3)
+
+BFS()
+print(visited[1])
