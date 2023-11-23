@@ -16,7 +16,7 @@ def BFS():
             visited[tmp-1] = visited[tmp] + 1
             queue.append(tmp-1)
         
-        if visited[tmp+1] == 0 and tmp+1<=1000001:
+        if tmp+1 <= 1000000 and visited[tmp+1] == 0:
             visited[tmp+1] = visited[tmp] + 1
             queue.append(tmp+1)
 
