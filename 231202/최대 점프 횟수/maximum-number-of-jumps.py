@@ -10,5 +10,5 @@ for i in range(1, n):
         if jump[j] >= i - j:
             dp[i] = max(dp[i], dp[j] + 1)
 
-max_jump = max([idx for idx in dp if idx != -1])
+max_jump = max([x for x in dp if x != -1])
 print(max_jump)
