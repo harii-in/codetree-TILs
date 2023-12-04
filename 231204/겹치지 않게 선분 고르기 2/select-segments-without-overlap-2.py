@@ -17,13 +17,8 @@ def choice_line(depth):
 
 def is_overlapped(line):
     for choice in choices:
-        if choice[0] == line[0] or choice[1] == line[1]:
+        if not (choice[1] < line[0] or choice[0] > line[1]):
             return True
-        if choice[0] > line[0] and choice[1] > line[1]:
-            continue
-        if choice[0] < line[0] and choice[1] < line[1]:
-            continue
-        return True
     return False
 
 choice_line(0)
