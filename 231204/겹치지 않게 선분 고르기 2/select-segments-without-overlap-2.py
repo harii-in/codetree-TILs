@@ -21,7 +21,7 @@ def is_overlapped(line):
             return True
         if choice[0] > line[0] and choice[1] > line[1]:
             continue
-        if choice[0] < line[0] and choice[0] < line[0]:
+        if choice[0] < line[0] and choice[1] < line[1]:
             continue
         return True
     return False
