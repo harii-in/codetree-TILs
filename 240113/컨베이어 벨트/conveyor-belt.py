@@ -2,10 +2,12 @@ n, t = map(int, input().split())
 upper = list(map(int, input().split()))
 lower = list(map(int, input().split()))
 
-belt = upper + lower
-body = belt[:-t]
-move = belt[-t:]
+for _ in range(t):
+    temp = upper[-1]
+    upper[1:] = upper[:-1]
+    upper[0] = lower[-1]
+    lower[1:] = lower[:-1]
+    lower[0] = temp
 
-ans = move + body
-print(*ans[:n])
-print(*ans[-n:])
+print(*upper)
+print(*lower)
