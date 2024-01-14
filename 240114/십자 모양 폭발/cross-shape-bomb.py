@@ -21,7 +21,6 @@ for d in range(4):
             grid[nx][ny] = 0
 
 # 중력 적용
-# 중력 적용
 for j in range(n):
     non_zero_elements = [grid[i][j] for i in range(n) if grid[i][j] != 0]
     for i in range(n):
@@ -29,7 +28,7 @@ for j in range(n):
             grid[i][j] = 0
         else:
             grid[i][j] = non_zero_elements[i - (n - len(non_zero_elements))]
-            
+
 
 for row in grid:
     print(*row)
