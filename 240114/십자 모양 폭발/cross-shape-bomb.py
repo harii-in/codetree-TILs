@@ -21,11 +21,11 @@ for d in range(4):
             grid[nx][ny] = 0
 
 # 중력 적용
-for i in range(n-1, 0, -1):
+for i in range(n):
     for j in range(n):
-        if grid[i][j] == 0:
-            grid[i][j] = grid[i-1][j]
-            grid[i-1][j] = 0
+        if in_range(i+1, j) and grid[i+1][j] == 0:
+            grid[i+1][j] = grid[i][j]
+            grid[i][j] = 0
 
 for row in grid:
     print(*row)
