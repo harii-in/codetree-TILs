@@ -27,4 +27,7 @@ for j in range(n):
         else:
             tmp = 1
 
-print(ans)
+if m == 1:
+    print(n*2)
+else:
+    print(ans)
