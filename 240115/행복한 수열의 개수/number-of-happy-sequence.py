@@ -2,7 +2,6 @@ n, m = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 
 ans = 0
-flag = False
 
 # 행에 대한 행복한 수열 검사
 for row in grid:
