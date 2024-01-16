@@ -1,44 +1,46 @@
-def input_data():
-    """데이터 입력: 격자와 초기 bash 위치"""
-    n, m, t = map(int, input().split())
-    grid = [list(map(int, input().split())) for _ in range(n)]
-    bash_positions = [[x-1, y-1] for _ in range(m) for x, y in [map(int, input().split())]]
-    return n, m, t, grid, bash_positions
+n, m, t = map(int, input().split())
+grid = [list(map(int, input().split())) for _ in range(n)]
 
+# positions = []
+# for _ in range(m):
+#     x, y = map(int, input().split())
+#     positions.append([x - 1, y - 1])
+positions = [[x-1, y-1] for _ in range(m) for x, y in [map(int, input().split())]]
 
-def in_range(x, y, n):
-    """(x, y)가 n x n 크기의 격자 내부에 있는지 확인"""
+dx = [0, 1, 0, -1]
+dy = [1, 0, -1, 0]
+
+def in_range(x, y):
     return 0 <= x < n and 0 <= y < n
 
-
-def move_bash(n, grid, bash_positions):
-    """각 bash를 주변의 최대값 위치로 이동"""
-    dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+def move(position):
     new_grid = [[0] * n for _ in range(n)]
 
-    for x, y in sorted(bash_positions):
-        neighbor_values = []
-        for i in range(4):
-            nx, ny = x + dx[i], y + dy[i]
-            if in_range(nx, ny, n):
-                neighbor_values.append((grid[nx][ny], nx, ny))
+    for x, y in sorted(position):
+        neighbor = []
+        # 상하좌우 중 가장 큰 값이 적혀있는 숫자
+        for d in range(4):
+            nx = x + dx[d]
+            ny = y + dy[d]
 
-        val, cur_x, cur_y = max(neighbor_values, key=lambda item: item[0])
-        new_grid[cur_x][cur_y] += 1
+            if in_range(nx, ny):
+                neighbor.append((grid[nx][ny], nx, ny))
 
+        value, next_x, next_y = max(neighbor, key=lambda item: item[0])
+        new_grid[next_x][next_y] += 1
+
+    # 이동한 이후 2개 이상의 구슬 위치가 동일하면, 해당 위치에 있는 구슬들은 전부 사라짐
     for x in range(n):
         for y in range(n):
             if new_grid[x][y] >= 2:
                 new_grid[x][y] = 0
 
-    updated_bash_positions = [(x, y) for x in range(n) for y in range(n) if new_grid[x][y] == 1]
+    updated_position = [(x, y) for x in range(n) for y in range(n) if new_grid[x][y] == 1]
 
-    return updated_bash_positions
+    return updated_position
 
-
-n, m, t, grid, bash_positions = input_data()
 
 for _ in range(t):
-    bash_positions = move_bash(n, grid, bash_positions)
+    positions = move(positions)
 
-print(len(bash_positions))
+print(len(positions))
