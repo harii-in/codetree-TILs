@@ -1,17 +1,15 @@
 n, m, t = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
-bash_positions = [[x-1, y-1] for _ in range(m) for x, y in [map(int, input().split())]]
-
+positions = [[x-1, y-1] for _ in range(m) for x, y in [map(int, input().split())]]
 
 def in_range(x, y, n):
     return 0 <= x < n and 0 <= y < n
 
-
-def move_bash(n, grid, bash_positions):
+def move_bash(positions):
     dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
     new_grid = [[0] * n for _ in range(n)]
 
-    for x, y in sorted(bash_positions):
+    for x, y in sorted(positions):
         neighbor_values = []
         for i in range(4):
             nx, ny = x + dx[i], y + dy[i]
@@ -33,6 +31,6 @@ def move_bash(n, grid, bash_positions):
 
 
 for _ in range(t):
-    bash_positions = move_bash(n, grid, bash_positions)
+    positions = move_bash(positions)
 
-print(len(bash_positions))
+print(len(positions))
