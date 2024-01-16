@@ -1,10 +1,7 @@
 n, m, t = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 
-positions = []
-for _ in range(m):
-    x, y = map(int, input().split())
-    positions.append([x - 1, y - 1])
+positions = [[x-1, y-1] for _ in range(m) for x, y in [map(int, input().split())]]
 
 dx = [0, 1, 0, -1]
 dy = [1, 0, -1, 0]
@@ -12,10 +9,10 @@ dy = [1, 0, -1, 0]
 def in_range(x, y):
     return 0 <= x < n and 0 <= y < n
 
-def move(position):
+def move(positions):
     new_grid = [[0] * n for _ in range(n)]
 
-    for x, y in sorted(position):
+    for x, y in sorted(positions):
         neighbor = []
         # 상하좌우 중 가장 큰 값이 적혀있는 숫자
         for d in range(4):
