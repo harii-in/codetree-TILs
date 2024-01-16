@@ -1,11 +1,10 @@
 n, m, t = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 
-# positions = []
-# for _ in range(m):
-#     x, y = map(int, input().split())
-#     positions.append([x - 1, y - 1])
-positions = [[x-1, y-1] for _ in range(m) for x, y in [map(int, input().split())]]
+positions = []
+for _ in range(m):
+    x, y = map(int, input().split())
+    positions.append([x - 1, y - 1])
 
 dx = [0, 1, 0, -1]
 dy = [1, 0, -1, 0]
