@@ -27,7 +27,8 @@ def is_positive(rect):
         for col in range(m):
             if grid[row][col] <= 0 and rect[row][col]:
                 return False
-            cnt += 1
+            if rect[row][col]:
+                cnt += 1
     return cnt
 
 ans = -1e9
