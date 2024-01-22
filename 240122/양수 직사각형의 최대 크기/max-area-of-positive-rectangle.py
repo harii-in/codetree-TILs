@@ -31,7 +31,7 @@ def is_positive(rect):
                 cnt += 1
     return cnt
 
-ans = -1e9
+ans = -1
 limit = len(rect_list)
 for idx in range(limit):
     rect = rect_list[idx]
