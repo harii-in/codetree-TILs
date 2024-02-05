@@ -47,5 +47,9 @@ elif dir == 'D':
     for _ in range(2):
         grid = clockwise(grid)
 
+else:
+    grid = up(grid)
+
+
 for i in range(4):
     print(*grid[i])
