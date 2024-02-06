@@ -60,6 +60,7 @@ def FindStraightNumbers():
 def ClockWise():
     global grid
     grid = list(map(list, zip(*grid[::-1])))
+    Gravity()
 
 for _ in range(K):
     FindStraightNumbers()
