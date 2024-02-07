@@ -37,7 +37,7 @@ def move():
                 break   # 움직여
         else:
             return (-1, -1)
-    return (nx, ny) if cnt != 4 else (x, y)
+    return (nx, ny) if tmp != 4 else (x, y)
 
 def checkRight():
     right = (direction + 1) % 4
