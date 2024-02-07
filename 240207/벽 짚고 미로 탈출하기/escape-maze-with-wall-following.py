@@ -34,7 +34,6 @@ def move():
                 direction = (direction + 3) % 4
             # 진행방향에 벽X
             elif grid[nx][ny] == '.':
-                flag = True
                 break   # 움직여
         else:
             return (-1, -1)
