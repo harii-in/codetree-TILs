@@ -1,3 +1,5 @@
+import copy
+
 N, M, Q = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(N)]
 wind = [list(map(int, input().split())) for _ in range(Q)]
@@ -34,7 +36,7 @@ def rotate(r1, c1, r2, c2):
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 def average(r1, c1, r2, c2):
-    new_grid = [row[:] for row in grid]
+    new_grid = copy.deepcopy(grid)
     for x in range(r1, r2+1):
         for y in range(c1, c2+1):
             tmp_sum = grid[x][y]
