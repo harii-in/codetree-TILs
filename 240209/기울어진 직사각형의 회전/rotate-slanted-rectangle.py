@@ -18,6 +18,7 @@ dy_cc = [1, -1, -1, 1]
 
 dx_c = [-1, -1, 1, 1]
 dy_c = [-1, 1, 1, -1]
+
 if direction == 0:
     for d in range(4):
         for dist in range(dists[d]):
@@ -34,7 +35,6 @@ elif direction == 1:
             if inRange(nx, ny):
                 new_grid[nx][ny] = grid[x][y]
                 x, y = nx, ny
-
 
 for row in new_grid:
     print(*row)
