@@ -9,6 +9,9 @@ dists = [m1, m2, m3, m4]
 x = r - 1
 y = c - 1
 
+def inRange(x, y):
+    return 0 <= x < n and 0 <= y < n
+
 # 0 반시계, 1 시계
 dx = [-1, -1, 1, 1]
 dy = [1, -1, -1, 1]
@@ -17,15 +20,17 @@ if direction == 0:
         for dist in range(dists[d]):
             nx = x + dx[d]
             ny = y + dy[d]
-            new_grid[nx][ny] = grid[x][y]
-            x, y = nx, ny
+            if inRange(nx, ny):
+                new_grid[nx][ny] = grid[x][y]
+                x, y = nx, ny
 elif direction == 1:
     for d in range(3, -1, -1):
         for dist in range(dists[3 - d]):
             nx = x + dx[d]
             ny = y + dy[d]
-            new_grid[nx][ny] = grid[x][y]
-            x, y = nx, ny
+            if inRange(nx, ny):
+                new_grid[nx][ny] = grid[x][y]
+                x, y = nx, ny
 
 
 for row in new_grid:
