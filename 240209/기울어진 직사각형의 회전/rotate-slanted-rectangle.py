@@ -27,9 +27,10 @@ if direction == 0:
             if inRange(nx, ny):
                 new_grid[nx][ny] = grid[x][y]
                 x, y = nx, ny
+                
 elif direction == 1:
     for d in range(4):
-        for dist in range(dists[d]):
+        for dist in range(dists[3-d]):
             nx = x + dx_c[d]
             ny = y + dy_c[d]
             if inRange(nx, ny):
