@@ -25,8 +25,6 @@ def shift(target, cnt):
 min_len = 1e9
 old = A
 
-
-
 for cnt in range(1, n):
     shifted = shift(old, 1)
     encoded = encode(shifted)
