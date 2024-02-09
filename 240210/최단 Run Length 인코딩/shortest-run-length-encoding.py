@@ -1,3 +1,6 @@
+A = input()
+n = len(A)
+
 def encode(target):
     encoded = ""
     encoded += target[0]
@@ -15,38 +18,22 @@ def encode(target):
 
     return encoded
 
-
 def shift(target, cnt):
-    shifted = list(target)
-
-    while cnt > 0:
-        tmp = shifted[-1]
-        for i in range(len(shifted) - 1, 0, -1):
-            shifted[i] = shifted[i - 1]
-        shifted[0] = tmp
-        cnt -= 1
-
-    return ''.join(shifted)
+    return target[cnt:] + target[:cnt]
 
 
-def get_min_len():
-    if n == 1:
-        return 2
-
-    min_len = float('inf')
-    old = A
-
-    for cnt in range(1, n):
-        shifted = shift(old, 1)
-        encoded = encode(shifted)
-        min_len = min(min_len, len(encoded))
-        old = shifted
-
-    return min_len
+min_len = 1e9
+old = A
 
 
-if __name__ == "__main__":
-    A = input()
-    n = len(A)
-    min_len = get_min_len()
+
+for cnt in range(1, n):
+    shifted = shift(old, 1)
+    encoded = encode(shifted)
+    min_len = min(min_len, len(encoded))
+    old = shifted
+
+if n == 1:
+    print(2)
+else:
     print(min_len)
