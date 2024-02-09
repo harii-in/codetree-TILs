@@ -16,7 +16,7 @@ def inRange(x, y):
 dx_cc = [-1, -1, 1, 1]
 dy_cc = [1, -1, -1, 1]
 
-dx_c = [1, 1, -1, -1]
+dx_c = [-1, -1, 1, 1]
 dy_c = [-1, 1, 1, -1]
 
 if direction == 0:
