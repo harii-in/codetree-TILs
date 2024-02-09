@@ -13,21 +13,24 @@ def inRange(x, y):
     return 0 <= x < n and 0 <= y < n
 
 # 0 반시계, 1 시계
-dx = [-1, -1, 1, 1]
-dy = [1, -1, -1, 1]
+dx_cc = [-1, -1, 1, 1]
+dy_cc = [1, -1, -1, 1]
+
+dx_c = [-1, -1, 1, 1]
+dy_c = [-1, 1, 1, -1]
 if direction == 0:
     for d in range(4):
         for dist in range(dists[d]):
-            nx = x + dx[d]
-            ny = y + dy[d]
+            nx = x + dx_cc[d]
+            ny = y + dy_cc[d]
             if inRange(nx, ny):
                 new_grid[nx][ny] = grid[x][y]
                 x, y = nx, ny
 elif direction == 1:
-    for d in range(3, -1, -1):
-        for dist in range(dists[3 - d]):
-            nx = x + dx[d]
-            ny = y + dy[d]
+    for d in range(4):
+        for dist in range(dists[d]):
+            nx = x + dx_c[d]
+            ny = y + dy_c[d]
             if inRange(nx, ny):
                 new_grid[nx][ny] = grid[x][y]
                 x, y = nx, ny
