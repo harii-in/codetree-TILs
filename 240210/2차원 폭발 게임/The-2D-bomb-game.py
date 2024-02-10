@@ -45,19 +45,14 @@ def do_bomb():
             make_zero(start_idx, N - 1, j)
 
 def gravity():
-    global grid
-    temp = [[0]*N for _ in range(N)]
-
     for j in range(N):
-        last_idx = N - 1
+        idx = N - 1
         for i in range(N - 1, -1, -1):
             if grid[i][j]:
-                temp[last_idx][j] = grid[i][j]
-                last_idx -= 1
-
-    for i in range(N):
-        for j in range(N):
-            grid[i][j] = temp[i][j]
+                grid[idx][j] = grid[i][j]
+                if idx != i:
+                    grid[i][j] = 0
+                idx -= 1
 
 
 def clockwise():
