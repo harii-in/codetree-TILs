@@ -48,26 +48,24 @@ def do_bomb():
 
 def gravity():
     global grid
-    tmp = copy.deepcopy(temp)
+    temp = [[0]*N for _ in range(N)]
 
     for j in range(N):
         last_idx = N - 1
         for i in range(N - 1, -1, -1):
             if grid[i][j]:
-                tmp[last_idx][j] = grid[i][j]
+                temp[last_idx][j] = grid[i][j]
                 last_idx -= 1
 
-    grid = copy.deepcopy(tmp)
+    grid = copy.deepcopy(temp)
 
 def clockwise():
     global grid
-    tmp = copy.deepcopy(temp)
-
+    temp = [[0]*N for _ in range(N)]
     for i in range(N):
         for j in range(N):
-            tmp[j][N - 1 - i] = grid[i][j]
-    
-    grid = copy.deepcopy(tmp)
+            temp[j][N - 1 - i] = grid[i][j]
+    grid = copy.deepcopy(temp)
 
 
 for _ in range(K):
