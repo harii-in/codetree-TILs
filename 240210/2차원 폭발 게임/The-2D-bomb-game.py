@@ -68,7 +68,6 @@ def clockwise():
             tmp[j][N - 1 - i] = grid[i][j]
     
     grid = copy.deepcopy(tmp)
-    gravity()
 
 
 for _ in range(K):
