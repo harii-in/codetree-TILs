@@ -2,11 +2,9 @@
 # 중력 작용
 # 시계 방향으로 90도 회전
 # 한 번 더 0으로 만들고 중력 작용
-import copy
 
 N, M, K = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(N)]
-temp = [[0] * N for _ in range(N)]
 
 def bomb():
     # m개 이상의 연속 수를 0으로 만들고, 중력작용하는 함수
@@ -68,10 +66,8 @@ def clockwise():
     for i in range(N):
         for j in range(N):
             temp[j][N - 1 - i] = grid[i][j]
-            
-    for i in range(N):
-        for j in range(N):
-            grid[i][j] = temp[i][j]
+
+    grid = temp
 
 
 for _ in range(K):
