@@ -54,7 +54,6 @@ def gravity():
                     grid[i][j] = 0
                 idx -= 1
 
-
 def clockwise():
     global grid
     temp = [[0]*N for _ in range(N)]
@@ -63,7 +62,6 @@ def clockwise():
             temp[j][N - 1 - i] = grid[i][j]
 
     grid = temp
-
 
 for _ in range(K):
     # m개 이상이면 0으로 만들고, 중력작용하기
