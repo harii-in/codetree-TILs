@@ -57,7 +57,10 @@ def gravity():
                 temp[last_idx][j] = grid[i][j]
                 last_idx -= 1
 
-    grid = copy.deepcopy(temp)
+    for i in range(N):
+        for j in range(N):
+            grid[i][j] = temp[i][j]
+
 
 def clockwise():
     global grid
@@ -65,7 +68,10 @@ def clockwise():
     for i in range(N):
         for j in range(N):
             temp[j][N - 1 - i] = grid[i][j]
-    grid = copy.deepcopy(temp)
+            
+    for i in range(N):
+        for j in range(N):
+            grid[i][j] = temp[i][j]
 
 
 for _ in range(K):
