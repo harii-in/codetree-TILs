@@ -15,9 +15,8 @@ for row in range(n):
         break
         
 if not flag:
-    for row in range(n):
         for col in range(k - 1, k - 1 + m):
-            grid[row][col] = 1
+            grid[n-1][col] = 1
 
 for row in grid:
     print(*row)
