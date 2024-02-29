@@ -20,6 +20,6 @@ for c in C:
 ans = 0
 for ab in AB:
     if -ab in CD:
-        ans += 1
+        ans += AB[ab] * CD[-ab]
 
 print(ans)
