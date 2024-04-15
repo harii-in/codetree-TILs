@@ -58,18 +58,20 @@ def gravity(col, E):
             continue
 
         # 반시계
-        if check_golem(row+1, col-1):
-            tmp = leftclock(tmp)
-            row += 1
-            col -= 1
-            continue
+        if check_golem(row, col-1):
+            if check_golem(row+1, col-1):
+                tmp = leftclock(tmp)
+                row += 1
+                col -= 1
+                continue
 
         # 시계
-        if check_golem(row+1, col+1):
-            tmp = rightclock(tmp)
-            row += 1
-            col += 1
-            continue
+        if check_golem(row, col+1):
+            if check_golem(row+1, col+1):
+                tmp = rightclock(tmp)
+                row += 1
+                col += 1
+                continue
         
         # 셋 다 아니면
         break
